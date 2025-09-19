@@ -25,7 +25,7 @@ BEGIN
         -----------------------------------
         
 		SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'wscActorRoType';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         -- INSERTS
         DROP TABLE IF EXISTS #wscActorRoType_insert;
@@ -126,7 +126,7 @@ DELETE FROM wscActorRoType where wscActorRoTypeId in (select wsc_actor_ro_type_i
         -----------------------------------
         
 		SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'wscActorRo';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         -- INSERTS
         DROP TABLE IF EXISTS #wscActorRo_insert;
@@ -236,7 +236,7 @@ DELETE  FROM wscActorRo where wscActorRoId in (select wsc_actor_ro_id from #wscA
         -----------------------------------
         
 		SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'wscBasis';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         -- INSERTS
         DROP TABLE IF EXISTS #wscBasis_insert;
@@ -331,7 +331,7 @@ DELETE  FROM wscBasis where wscBasisId in (select WSC_BASIS_ID from #wscBasis_dl
         -----------------------------------
         
 		SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'wscRao';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         -- INSERTS
         DROP TABLE IF EXISTS #wscRao_insert;
@@ -445,7 +445,7 @@ DELETE  FROM wscRao where wscRaoId in (select WSC_RAO_ID from #wscRao_dlt)
         -----------------------------------
         
 		SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'wscRelease';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         -- INSERTS
         DROP TABLE IF EXISTS #wscRelease_insert;
@@ -555,7 +555,7 @@ DELETE FROM wscRelease where regObjId in (Select REG_OBJ_ID from #wscRelease_dlt
         -----------------------------------
         
 		SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'wscTier';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         -- INSERTS
         DROP TABLE IF EXISTS #wscTier_insert;
@@ -687,7 +687,7 @@ DELETE FROM wscTier where perfActId in (select perf_act_id from #wscTier_dlt)
         -----------------------------------
         
 		SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'wscRegionalUse';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         -- INSERTS
         DROP TABLE IF EXISTS #wscRegionalUse_insert;
@@ -774,7 +774,7 @@ DELETE FROM wscRegionalUse where regObjId in (select reg_obj_id from #wscRegiona
 
 
 		SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'wscBasisType';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         -- INSERTS
         DROP TABLE IF EXISTS #wscBasisType_insert;
@@ -873,7 +873,7 @@ DELETE FROM wscBasisType where wscBasisTypeId in (select WSC_BASIS_TYPE_ID from 
         -----------------------------------
         
 		SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'wscClassificationType';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         -- INSERTS
         DROP TABLE IF EXISTS #wscClassificationType_insert;
@@ -959,7 +959,7 @@ DELETE FROM wscClassificationType where classTypeId in (select CLASS_TYPE_ID fro
 
 
 		SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'wscActorRoPa';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         -- INSERTS
         DROP TABLE IF EXISTS #wscActorRoPa_insert;
@@ -1045,7 +1045,7 @@ DELETE FROM wscActorRoPa where wscActorRoPaId in (select WSC_ACTOR_RO_PA_ID from
 -----------------------------------
 
 		SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'wscBillYears';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         -- INSERTS
         DROP TABLE IF EXISTS #wscBillYears_insert;
@@ -1172,7 +1172,7 @@ DELETE FROM wscBillYears where billYearId in (select BILL_YEAR_ID from #wscBillY
 
 
 		SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'wscBillingReports';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         -- INSERTS
         DROP TABLE IF EXISTS #wscBillingReports_insert;
@@ -1307,7 +1307,7 @@ DELETE FROM wscBillingReports where reportId in (select REPORT_ID from #wscBilli
 
 
 		SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'wscBillingReportPages';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         -- INSERTS
         DROP TABLE IF EXISTS #wscBillingReportPages_insert;
@@ -1505,7 +1505,7 @@ DELETE FROM wscBillingReportPages where reportPageId in (select REPORT_PAGE_ID f
 
 
 		SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'wscPerfActStatusHistory';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         -- INSERTS
         DROP TABLE IF EXISTS #wscPerfActStatusHistory_insert;

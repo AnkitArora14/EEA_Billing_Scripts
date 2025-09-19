@@ -26,7 +26,7 @@ BEGIN
         -- Process FMF.REG_OBJ
         -----------------------------------
         SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'fmfRegulatedObject';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         -- INSERTS
         DROP TABLE IF EXISTS #fmfRegulatedObject_insert;
@@ -218,7 +218,7 @@ SET IDENTITY_INSERT fmfRegulatedObject OFF;
         -- Repeat for fmfPerformedAction (Example)
         -----------------------------------
         SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'fmfPerformedAction';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         DROP TABLE IF EXISTS #fmfPerformedAction_insert;
         SELECT * INTO #fmfPerformedAction_insert FROM [OracleCDCInstance10].[dbo].[PERFORMED_ACTION_DELTA]
@@ -376,7 +376,7 @@ UPDATE fmfPerformedAction
         -- Process 
         -----------------------------------
         SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'fmfPerfActConfiguration';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         -- INSERTS
         DROP TABLE IF EXISTS #fmfPerfActConfiguration;
@@ -469,7 +469,7 @@ DELETE  FROM fmfPerfActConfiguration where perfActId in (select PERF_ACT_ID from
         -- Process wscPerfActStatusHistory
         -----------------------------------
         SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'wscPerfActStatusHistory';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         -- INSERTS
         DROP TABLE IF EXISTS #wscPerfActStatusHistory_insert;
@@ -569,7 +569,7 @@ DELETE  FROM wscPerfActStatusHistory where perfActStatusHistoryId in (select PER
         -- Process 
         -----------------------------------
         SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'fmfClassificationType';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         -- INSERTS
         DROP TABLE IF EXISTS #fmfClassificationType_insert;

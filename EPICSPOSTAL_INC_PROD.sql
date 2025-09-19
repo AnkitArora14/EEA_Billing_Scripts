@@ -27,7 +27,7 @@ BEGIN
         -- Process TableA
         -----------------------------------
         SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'epicsActor';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         -- INSERTS
         DROP TABLE IF EXISTS #epicsActor_insert;
@@ -154,7 +154,7 @@ DELETE FROM epicsActor where actorid in (select [ACTOR_ID] from #epicsActor_dlt)
 -----------------
 
 SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'epicsAddress';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         DROP TABLE IF EXISTS #epicsAddress_insert;
         SELECT * INTO #epicsAddress_insert FROM [OracleCDCInstance10].[dbo].[ADDRESS_DELTA]
@@ -272,7 +272,7 @@ DELETE  FROM epicsAddress where addressid in (select ADDRESS_ID from #epicsAddre
 ----------------------------------
 
 SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'epicsActorAddress';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         DROP TABLE IF EXISTS #epicsActorAddress_insert;
         SELECT * INTO #epicsActorAddress_insert FROM [OracleCDCInstance10].[dbo].[ACTOR_ADDRESS_DELTA]
@@ -371,7 +371,7 @@ DELETE  FROM epicsActorAddress where actoraddressid in (select actor_address_id 
 
 
 SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'epicsHoliday';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         DROP TABLE IF EXISTS #epicsHoliday_insert;
         SELECT * INTO #epicsHoliday_insert FROM [OracleCDCInstance10].[dbo].[EPICS_HOLIDAY_DELTA]
@@ -457,7 +457,7 @@ DELETE  FROM epicsHoliday where holidayId in (select holiday_id from #epicsHolid
 
 
 SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'postalTown';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         DROP TABLE IF EXISTS #postalTown_insert;
         SELECT * INTO #postalTown_insert FROM [OracleCDCInstance20].[dbo].[POSTAL_TOWN_DELTA]
@@ -563,7 +563,7 @@ DELETE  FROM postalTown where townid in (select town_id from #postalTown_dlt)
 
 
 SELECT @LastTime = LastProcessedTime FROM dbo.ChangeTracker WHERE TableName = 'postalLocality';
-        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -2, @CurrentTime);
+        IF @LastTime IS NULL SET @LastTime = DATEADD(HOUR, -72, @CurrentTime);
 
         DROP TABLE IF EXISTS #postalLocality_insert;
         SELECT * INTO #postalLocality_insert FROM [OracleCDCInstance20].[dbo].[POSTAL_LOCALITY_DELTA]
